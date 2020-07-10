@@ -1,4 +1,4 @@
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin('~/.config/nvim/plugged-t')
 
 Plug 'neoclide/coc.nvim'
 Plug 'dikiaap/minimalist'
