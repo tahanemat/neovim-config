@@ -9,6 +9,7 @@ Plug 'neoclide/coc-highlight'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'bfrg/vim-cpp-modern'
 Plug 'jiangmiao/auto-pairs'
+Plug 'APZelos/blamer.nvim'
 
 call plug#end()
 
@@ -30,6 +31,8 @@ let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
 let g:cpp_posix_standard = 1
 let g:cpp_concepts_highlight = 1
+let g:blamer_enabled = 1
+let g:blamer_delay = 500
 
 let NERDTreeMouseMode = 2
 
