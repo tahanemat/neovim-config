@@ -10,6 +10,8 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'bfrg/vim-cpp-modern'
 Plug 'jiangmiao/auto-pairs'
 Plug 'APZelos/blamer.nvim'
+Plug 'itchyny/lightline.vim'
+Plug 'itchyny/vim-gitbranch'
 
 call plug#end()
 
@@ -24,6 +26,8 @@ set expandtab
 set noswapfile
 set pumheight=10
 set termguicolors
+set cmdheight=2
+set noshowmode
 
 let g:cpp_class_scope_highlight = 1
 let c_no_curly_error = 1
@@ -33,6 +37,16 @@ let g:cpp_posix_standard = 1
 let g:cpp_concepts_highlight = 1
 let g:blamer_enabled = 1
 let g:blamer_delay = 500
+
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'gitbranch#name'
+      \ },
+      \ }
 
 let NERDTreeMouseMode = 2
 
