@@ -13,7 +13,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'APZelos/blamer.nvim'
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
-Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-signify'
 
 call plug#end()
 
@@ -30,6 +30,7 @@ set pumheight=10
 set termguicolors
 set cmdheight=1
 set noshowmode
+set updatetime=100
 
 let g:cpp_class_scope_highlight = 1
 let c_no_curly_error = 1
