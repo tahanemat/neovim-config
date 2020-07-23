@@ -12,6 +12,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'APZelos/blamer.nvim'
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
