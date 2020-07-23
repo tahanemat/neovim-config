@@ -4,6 +4,7 @@ Plug 'neoclide/coc.nvim'
 Plug 'dikiaap/minimalist'
 Plug 'wadackel/vim-dogrun'
 Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tbastos/vim-lua'
 Plug 'neoclide/coc-highlight'
 Plug 'octol/vim-cpp-enhanced-highlight'
@@ -27,7 +28,7 @@ set expandtab
 set noswapfile
 set pumheight=10
 set termguicolors
-set cmdheight=2
+set cmdheight=1
 set noshowmode
 
 let g:cpp_class_scope_highlight = 1
@@ -87,3 +88,8 @@ endfunction
 
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
+function! GitStatus()
+  let [a,m,r] = GitGutterGetHunkSummary()
+  return printf('+%d ~%d -%d', a, m, r)
+endfunction
+set statusline+=%{GitStatus()}
