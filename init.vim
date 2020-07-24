@@ -80,11 +80,14 @@ augroup MouseInNERDTreeOnly
 augroup END
 set mouse=
 
-highlight Comment cterm=italic
-highlight Statement cterm=italic
-highlight cppStructure cterm=italic ctermfg=215 guifg=#FFAF5F
+highlight Comment cterm=italic gui=italic
+highlight Statement cterm=italic gui=italic
+highlight cppStructure cterm=italic gui=italic ctermfg=215 guifg=#FFAF5F
 highlight Pmenu ctermbg=57 guibg=#272540
 
+highlight Normal guibg=Black guifg=White
+highlight LineNr guibg=Black
+highlight NonText guibg=None guifg=None
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
