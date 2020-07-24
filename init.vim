@@ -149,7 +149,6 @@ nmap <Leader>c9 <Plug>lightline#bufferline#delete(9)
 nmap <Leader>c0 <Plug>lightline#bufferline#delete(10)
 map <C-h> <Cmd>bprevious<CR>
 map <C-l> <Cmd>bnext<CR>
-let g:lightline#bufferline#show_number = 1
 let g:lightline#bufferline#enable_devicons = 1
 let g:lightline#bufferline#unicode_symbols = 1
 let g:lightline#bufferline#filename_modifier = ':t'
