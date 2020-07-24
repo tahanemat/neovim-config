@@ -35,6 +35,7 @@ set cmdheight=1
 set noshowmode
 set updatetime=100
 set encoding=UTF-8
+scriptencoding utf-8
 
 let g:cpp_class_scope_highlight = 1
 let c_no_curly_error = 1
@@ -46,7 +47,7 @@ let g:blamer_enabled = 1
 let g:blamer_delay = 500
 
 let g:lightline = {
-      \ 'colorscheme': 'powerlineish',
+      \ 'colorscheme': 'default',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'relativepath', 'modified' ] ],
@@ -67,8 +68,9 @@ let g:lightline = {
       \ 'component_function': {
       \   'gitbranch': 'gitbranch#name'
       \ },
-      \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-      \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
+		  \ 'separator': { 'left': "\ue0b8", 'right': "\ue0b6" },
+      \ 'subseparator': { 'left': "\ue0b9", 'right': "\ue0b7" },
+      \ 'mode_map': { 'n': 'N', 'i': 'I', 'R': 'R', 'v': 'V', 'V':'V-Line', "\<C-v>": 'V-Block', 'c':'C', 's':'S', 'S':'S-Line', "\<C-s>": 'S-Block', 't':'T' }
       \ }
 
 let NERDTreeMouseMode = 2
