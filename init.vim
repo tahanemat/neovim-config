@@ -47,7 +47,7 @@ let g:blamer_enabled = 1
 let g:blamer_delay = 500
 
 let g:lightline = {
-      \ 'colorscheme': 'default',
+      \ 'colorscheme': 'simpleblack',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'relativepath', 'modified' ] ],
@@ -87,10 +87,16 @@ highlight Statement cterm=italic gui=italic
 highlight cppStructure cterm=italic gui=italic ctermfg=215 guifg=#FFAF5F
 highlight Pmenu ctermbg=57 guibg=#272540
 
-highlight Normal guibg=Black guifg=White
+highlight Normal guibg=Black 
 highlight LineNr guibg=Black
 highlight NonText guibg=None guifg=None
 
+let g:signify_sign_show_text = 1
+
+highlight SignifySignAdd    ctermfg=black ctermbg=green  guifg=#000000 guibg=#00ff00
+highlight SignifySignDelete ctermfg=black ctermbg=red    guifg=#ffffff guibg=#7400e0
+highlight SignifySignChange ctermfg=black ctermbg=yellow guifg=#000000 guibg=#ffff00
+"
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
