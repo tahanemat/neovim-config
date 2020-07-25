@@ -33,7 +33,12 @@ set pumheight=10
 set termguicolors
 set cmdheight=1
 set noshowmode
+set nomodeline
 set updatetime=100
+set foldmethod=syntax
+set foldnestmax=10
+set nofoldenable
+set foldlevel=2
 set encoding=UTF-8
 scriptencoding utf-8
 
