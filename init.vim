@@ -5,6 +5,7 @@ Plug 'dikiaap/minimalist'
 Plug 'wadackel/vim-dogrun'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'preservim/nerdcommenter'
 Plug 'tbastos/vim-lua'
 Plug 'neoclide/coc-highlight'
 Plug 'octol/vim-cpp-enhanced-highlight'
@@ -22,6 +23,7 @@ call plug#end()
 set number relativenumber
 syntax on
 colorscheme minimalist
+filetype plugin on
 set hidden
 set tabstop=2
 set showtabline=2
@@ -50,9 +52,16 @@ let g:cpp_posix_standard = 1
 let g:cpp_concepts_highlight = 1
 let g:blamer_enabled = 1
 let g:blamer_delay = 500
+"
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Enable NERDCommenterToggle to check all selected lines is commented or not 
+let g:NERDToggleCheckAllLines = 1
 
 let g:lightline = {
-      \ 'colorscheme': 'simpleblack',
+      \ 'colorscheme': 'ayu_mirage',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'relativepath', 'modified' ] ],

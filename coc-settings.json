@@ -10,9 +10,8 @@
         "buildDirectory": "build"
       }
     },
-
-  "ccls": {
-    "enable": true,
+    "ccls": {
+    "enable": false,
     "command": "ccls",
     "filetypes": ["c","cpp", "objc", "objcpp"],
     "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
@@ -22,5 +21,6 @@
       }
     }
   }
-    }
+},
+"clangd.path": "/usr/bin/clangd-10"
 }
