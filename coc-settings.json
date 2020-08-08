@@ -1,8 +1,10 @@
 {
-    "languageserver": {
+  "languageserver": {
     "cmake": {
       "command": "cmake-language-server",
-      "filetypes": ["cmake"],
+      "filetypes": [
+        "cmake"
+      ],
       "rootPatterns": [
         "build/"
       ],
@@ -11,16 +13,26 @@
       }
     },
     "ccls": {
-    "enable": false,
-    "command": "ccls",
-    "filetypes": ["c","cpp", "objc", "objcpp"],
-    "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
-    "initializationOptions": {
-      "cache": {
-        "directory": "/tmp/ccls"
+      "enable": true,
+      "command": "ccls",
+      "filetypes": [ "c", "cpp", "objc", "objcpp" ],
+      "rootPatterns": [ ".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/" ],
+      "initializationOptions": {
+        "cache": {
+          "directory": "/tmp/ccls"
+        },
+        "highlight": {
+          "lsRanges": true
+        },
+        "clang": {
+          "resourceDir": "/usr/lib/clang/11.0.0",
+          "semanticHighlighting": true
+        },
+        "index": {
+          "threads": 2,
+          "multiversion": 1
+        }
       }
     }
   }
-},
-"clangd.path": "/usr/bin/clangd-10"
 }
