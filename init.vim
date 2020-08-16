@@ -18,12 +18,13 @@ Plug 'ervandew/supertab'
 Plug 'neoclide/coc-highlight'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'bfrg/vim-cpp-modern'
+Plug 'ghifarit53/tokyonight-vim'
 
 call plug#end()
 
+set termguicolors
 set signcolumn = number ""relativenumber
 syntax on
-colorscheme minimalist
 filetype plugin on
 set hidden
 set tabstop=2
@@ -33,7 +34,6 @@ set softtabstop=2
 set expandtab
 set noswapfile
 set pumheight=10
-set termguicolors
 set cmdheight=1
 set noshowmode
 set nomodeline
@@ -45,9 +45,15 @@ set foldlevel=2
 set encoding=UTF-8
 scriptencoding utf-8
 
+let g:tokyonight_style = 'night'
+let g:tokyonight_enable_italic = 1
+let g:tokyonight_transparent_background = 0
+let g:tokyonight_menu_selection_background = 'red'
+let g:tokyonight_cursor='red'
+let g:tokyonight_current_word = 'bold'
 let g:SuperTabDefaultCompletionType = "<c-n>"
 let g:cpp_class_scope_highlight = 1
-let c_no_curly_error = 1
+let c_no_curly_error = 0
 let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
 let g:cpp_posix_standard = 1
@@ -55,6 +61,7 @@ let g:cpp_concepts_highlight = 1
 let g:blamer_enabled = 1
 let g:blamer_delay = 500
 
+colorscheme tokyonight
 "
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
@@ -64,7 +71,7 @@ let g:NERDCompactSexyComs = 1
 let g:NERDToggleCheckAllLines = 1
 
 let g:lightline = {
-      \ 'colorscheme': 'ayu_mirage',
+      \ 'colorscheme': 'tokyonight',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'relativepath', 'modified' ] ],
@@ -106,9 +113,9 @@ highlight cppStructure cterm=italic gui=italic ctermfg=215 guifg=#FFAF5F
 highlight Pmenu ctermbg=57 guibg=#272540
 highlight CocHighlightText guibg=#333347
 
-highlight Normal guibg=Black
-highlight LineNr guibg=Black
-highlight NonText guibg=None guifg=None
+"highlight Normal guibg=None
+"highlight LineNr guibg=None
+"highlight NonText guibg=None guifg=None
 
 let g:signify_sign_show_text = 1
 
