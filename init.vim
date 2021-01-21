@@ -19,6 +19,7 @@ Plug 'neoclide/coc-highlight'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'bfrg/vim-cpp-modern'
 Plug 'ghifarit53/tokyonight-vim'
+Plug 'cdelledonne/vim-cmake'
 
 call plug#end()
 
@@ -45,7 +46,7 @@ set foldlevel=2
 set encoding=UTF-8
 scriptencoding utf-8
 
-let g:tokyonight_style = 'storm'
+let g:tokyonight_style = 'night'
 let g:tokyonight_enable_italic = 1
 let g:tokyonight_transparent_background = 0
 let g:tokyonight_menu_selection_background = 'red'
@@ -71,7 +72,7 @@ let g:NERDCompactSexyComs = 1
 let g:NERDToggleCheckAllLines = 1
 
 let g:lightline = {
-      \ 'colorscheme': 'tokyonight',
+      \ 'colorscheme': 'ayu_mirage',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'relativepath', 'modified' ] ],
@@ -193,8 +194,30 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+" xmap <leader>f  <Plug>(coc-format-selected)
+" nmap <leader>f  <Plug>(coc-format-selected)
+
+xmap <leader>f :pyf ~/llvm-project/clang/tools/clang-format/clang-format.py<cr>
+nmap <leader>f :pyf ~/llvm-project/clang/tools/clang-format/clang-format.py<cr>
+
+function! Formatonsave()
+  let l:formatdiff = 1
+  pyf ~/llvm/tools/clang/tools/clang-format/clang-format.py
+endfunction
+autocmd BufWritePre *.h,*.cc,*.cpp,*.hpp call Formatonsave()
+
+let g:clipboard = {
+\   'name': 'myClipboard',
+\   'copy': {
+\      '+': 'tmux load-buffer -',
+\      '*': 'tmux load-buffer -',
+\    },
+\   'paste': {
+\      '+': 'tmux save-buffer -',
+\      '*': 'tmux save-buffer -',
+\   },
+\   'cache_enabled': 1,
+\ }
 
 augroup mygroup
   autocmd!
