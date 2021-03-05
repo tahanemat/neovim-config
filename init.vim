@@ -61,6 +61,8 @@ let g:cpp_posix_standard = 1
 let g:cpp_concepts_highlight = 1
 let g:blamer_enabled = 1
 let g:blamer_delay = 500
+let g:python_host_prog = '/usr/bin/python2'
+let g:python3_host_prog = '/usr/bin/python3'
 
 colorscheme tokyonight
 "
