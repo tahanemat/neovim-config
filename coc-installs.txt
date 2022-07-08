@@ -1,0 +1,11 @@
+coc-clangd
+coc-cmake
+coc-eslint
+coc-highlight
+coc-json
+coc-lua
+coc-pyright
+coc-rust-analyzer
+coc-styled-components
+coc-tsserver
+coc-vimlsp

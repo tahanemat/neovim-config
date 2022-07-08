@@ -1,25 +1,18 @@
-call plug#begin('~/.config/nvim/plugged-t')
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'jiangmiao/auto-pairs'
-Plug 'ervandew/supertab'
-Plug 'jackguo380/vim-lsp-cxx-highlight'
-Plug 'preservim/nerdcommenter'
-Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
-Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'bfrg/vim-cpp-modern'
-Plug 'mhinz/vim-signify'
-Plug 'xiyaowong/nvim-transparent', {'branch': 'main'}
-Plug 'kana/vim-operator-user'
-Plug 'rhysd/vim-clang-format'
-Plug 'cdelledonne/vim-cmake'
-call plug#end()
+" source modular configs
+source $HOME/.config/nvim/plugs.vim
+""""""""""""""""""""""""
 
 set clipboard=unnamedplus
 set termguicolors
-set signcolumn = relativenumber number
+set noshowmode
+set signcolumn=auto
+set relativenumber number
 syntax on
 set hidden
-set tabstop=2
+set tabstop=8 
+set softtabstop=0 
+set shiftwidth=2 
+set smarttab
 set showtabline=2
 set expandtab
 set pumheight=15
@@ -34,10 +27,11 @@ let g:cpp_class_decl_highlight = 1
 let g:cpp_posix_standard = 1
 let g:cpp_concepts_highlight = 1
 
-let g:transparent_enabled = v:true
+let g:transparent_enabled = v:false
 
 set background=dark
-colorscheme challenger_deep
+"colorscheme challenger_deep
+colorscheme kanagawa
 
 " Use <c-space> to trigger completion.
 if has('nvim')
@@ -55,16 +49,25 @@ else
   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
+nmap <silent> <C-n> <cmd> NvimTreeToggle<CR>
+nmap <silent> <C-m> <cmd> MinimapToggle<CR>
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> <A-[> <Plug>(coc-diagnostic-prev)
+nmap <silent> <A-]> <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+" Formatting all code.
+xmap <leader>ff  <Plug>(coc-format)
+nmap <leader>ff  <Plug>(coc-format)
+" Formatting selected code.
+xmap <silent> <C-i> <Plug>(coc-format-selected)
+nmap <leader> <C-i> <Plug>(coc-format-selected)
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -116,6 +119,7 @@ highlight CocHighlightText guibg=#333347
 "highlight NonText guibg=None guifg=None
 
 let g:signify_sign_show_text = 1
+let g:semshi#mark_selected_nodes = 0
 
 highlight SignifySignAdd    ctermfg=black ctermbg=green  guifg=#000000 guibg=#00ff00
 highlight SignifySignDelete ctermfg=black ctermbg=red    guifg=#ffffff guibg=#7400e0
@@ -128,11 +132,12 @@ let g:NERDCompactSexyComs = 1
 " Enable NERDCommenterToggle to check all selected lines is commented or not 
 let g:NERDToggleCheckAllLines = 1
 
-xmap <leader>f :pyf /usr/share/clang/clang-format.py<cr>
-nmap <leader>f :pyf /usr/share/clang/clang-format.py<cr>
+xmap <leader>fc :pyf /usr/share/clang/clang-format.py<cr>
+nmap <leader>fc :pyf /usr/share/clang/clang-format.py<cr>
 
-function! Formatonsave()
-  let l:formatdiff = 1
-  pyf /usr/share/clang/clang-format.py
-endfunction
-autocmd BufWritePre *.h,*.cc,*.cpp,*.hpp call Formatonsave()
+autocmd BufWritePre *.h,*.cc,*.cpp,*.hpp call CocActionAsync('format')
+
+" source modular configs
+lua require('init')
+""""""""""""""""""""""""
+
